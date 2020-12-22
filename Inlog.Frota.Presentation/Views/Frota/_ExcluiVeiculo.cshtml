@@ -1,0 +1,56 @@
+﻿
+@model Inlog.Frota.Presentation.ViewModels.VeiculoViewModel
+
+
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+            <h4 class="modal-title">Confirmação de exclusão veículo</h4>
+        </div>
+        <div class="modal-body">
+
+            O veículo de chassi @Html.DisplayFor(model => model.Chassi) será excluído. Prosseguir a exclusão ?
+
+            @using (Html.BeginForm("ExcluirVeiculo", "Frota", FormMethod.Post, new { enctype = "multipart/form-data", role = "form", id = "frmConfirmaExclusaoVeiculo", @class = "form-horizontal" }))
+            {
+
+                @Html.HiddenFor(model => model.Id, new { @id = "hdId" })
+
+                <div class="modal-footer">
+
+                    <table>
+                        <tr>
+
+                            <td width="600px;">
+                                &nbsp;
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary" name="Sim" value=@Model.Id>Sim</button>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+
+
+            }
+
+
+        </div>
+
+    </div>
+
+</div>
+
+

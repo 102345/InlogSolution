@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inlog.Frota.Model", "Inlog.Frota.Model\Inlog.Frota.Model.csproj", "{9DA780C3-71A6-49BD-B185-2C566E508D95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inlog.Frota.DAL", "Inlog.Frota.DAL\Inlog.Frota.DAL.csproj", "{D80C11B2-38F8-47E6-8E09-E7D72532A7AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inlog.Frota.Service", "Inlog.Frota.Service\Inlog.Frota.Service.csproj", "{7F53D6A8-EEF0-4ABE-BC07-5E9FCA22BE2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inlog.Frota.Api", "Inlog.Frota.Api\Inlog.Frota.Api.csproj", "{79A24E91-CBA9-4192-8322-9252BC7E584E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inlog.Frota.Test", "Inlog.Frota.Test\Inlog.Frota.Test.csproj", "{997693E4-F4DB-40C7-BC7B-562289F52C54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inlog.Frota.Presentation", "Inlog.Frota.Presentation\Inlog.Frota.Presentation.csproj", "{F5715D4B-DFC7-49BE-803E-9FFE049F0E1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DA780C3-71A6-49BD-B185-2C566E508D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DA780C3-71A6-49BD-B185-2C566E508D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DA780C3-71A6-49BD-B185-2C566E508D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DA780C3-71A6-49BD-B185-2C566E508D95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D80C11B2-38F8-47E6-8E09-E7D72532A7AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D80C11B2-38F8-47E6-8E09-E7D72532A7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D80C11B2-38F8-47E6-8E09-E7D72532A7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D80C11B2-38F8-47E6-8E09-E7D72532A7AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F53D6A8-EEF0-4ABE-BC07-5E9FCA22BE2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F53D6A8-EEF0-4ABE-BC07-5E9FCA22BE2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F53D6A8-EEF0-4ABE-BC07-5E9FCA22BE2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F53D6A8-EEF0-4ABE-BC07-5E9FCA22BE2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79A24E91-CBA9-4192-8322-9252BC7E584E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79A24E91-CBA9-4192-8322-9252BC7E584E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79A24E91-CBA9-4192-8322-9252BC7E584E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79A24E91-CBA9-4192-8322-9252BC7E584E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{997693E4-F4DB-40C7-BC7B-562289F52C54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{997693E4-F4DB-40C7-BC7B-562289F52C54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{997693E4-F4DB-40C7-BC7B-562289F52C54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{997693E4-F4DB-40C7-BC7B-562289F52C54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5715D4B-DFC7-49BE-803E-9FFE049F0E1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5715D4B-DFC7-49BE-803E-9FFE049F0E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5715D4B-DFC7-49BE-803E-9FFE049F0E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5715D4B-DFC7-49BE-803E-9FFE049F0E1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8947ADA3-7ADD-4BA7-B1F7-F325D836D2F8}
+	EndGlobalSection
+EndGlobal

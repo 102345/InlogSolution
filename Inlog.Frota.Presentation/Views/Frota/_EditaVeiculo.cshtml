@@ -1,0 +1,100 @@
+﻿<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+@model Inlog.Frota.Presentation.ViewModels.VeiculoViewModel
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+            <h4 class="modal-title">Edita Veículo</h4>
+        </div>
+        <div class="modal-body">
+
+
+            @*@using (Html.BeginForm("AtualizarVeiculo", "Frota", FormMethod.Post, new { enctype = "multipart/form-data", role = "form", id = "frmAtualizarVeiculo", @class = "form-horizontal" }))*@
+            @using (Ajax.BeginForm("AtualizarVeiculo", "Frota", new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "frmAtualizarVeiculo" }))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary()
+                <div class="col-xs-12">
+
+                    <div class="form-group">
+                        Dados do Veículo
+                    </div>
+
+
+                    @Html.HiddenFor(model => model.Id, new { @id = "hdId" })
+
+                    <div class="form-group">
+                        <label for="txtChassi" class="form-label">Chassi</label>
+                        @Html.TextBoxFor(model => model.Chassi, new { placeholder = "Chassi", @class = "form-control", @id = "txtChassi", @readonly = "readonly" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="optTipo" class="form-label">Tipo</label>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label for="optCaminhao" class="form-label">Caminhão</label>
+                            @Html.RadioButtonFor(model => model.Tipo, "Caminhao", new { @id = "optCaminhao", @checked = "checked", @name = "optCaminhao", @value = "0", @disabled = "disabled" })
+                            <label for="optOnibus" class="form-label">Ônibus</label>
+                            @Html.RadioButtonFor(model => model.Tipo, "Onibus", new { @id = "optOnibus", @name = "optOnibus", @value = "1", @disabled = "disabled" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtNroPassageiros" class="form-label">Número de Passageiros</label>
+                        @Html.TextBoxFor(model => model.NroPassageiros, new { placeholder = "Número de Passageiros", @class = "form-control", @id = "txtNroPassageiros", @readonly = "readonly" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtCor" class="form-label">Cor</label>
+                        @Html.TextBoxFor(model => model.Cor, new { placeholder = "Cor", @class = "form-control", @id = "txtCor" })
+                        @Html.ValidationMessageFor(model => model.Cor)
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <table>
+                        <tr>
+
+                            <td width="600px;">
+                                &nbsp;
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary" name="OK" value="OK">OK</button>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+
+
+
+            }
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="~/Scripts/Frota/AtualizaVeiculo.js"></script>
+
+
