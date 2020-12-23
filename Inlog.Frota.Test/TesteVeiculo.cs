@@ -95,15 +95,6 @@ namespace Inlog.Frota.Test
 
             Assert.IsTrue(ret);
 
-            //var veiculoService = new VeiculoService();
-
-            //bool ret = false;
-
-            //veiculoService.InserirVeiculo(veiculo);
-
-            //ret = true;
-            //Assert.AreEqual(true, ret);
-
         }
 
 
@@ -125,27 +116,115 @@ namespace Inlog.Frota.Test
 
             Assert.IsFalse(ret);
 
-            //var veiculoService = new VeiculoService();
+        }
 
-            //bool ret = false;
 
-            //veiculoService.InserirVeiculo(veiculo);
+        [TestMethod]
+        public void BuscarVeiculoPorChassiSucesso()
+        {
 
-            //ret = true;
-            //Assert.AreEqual(true, ret);
+
+            var veiculo = new Veiculo()
+            {
+                Id = 1,
+                Chassi = "TTTTT",
+                Cor = "Bordo",
+                NroPassageiros = 2,
+                Tipo = 1
+            };
+
+            List<Veiculo> veiculos = new List<Veiculo>();
+
+            veiculos.Add(veiculo);
+
+
+            _veiculoRepository.Setup(x => x.GetAll()).Returns(veiculos);
+
+            var veiculo1 = _veiculoService.BuscarVeiculo("TTTTT");
+
+            Assert.IsNotNull(veiculo1);
+
+
+        }
+
+
+        [TestMethod]
+        public void BuscarVeiculoPorChassiFalha()
+        {
+
+
+            var veiculo = new Veiculo()
+            {
+                Id = 1,
+                Chassi = "TTTTT",
+                Cor = "Bordo",
+                NroPassageiros = 2,
+                Tipo = 1
+            };
+
+            List<Veiculo> veiculos = new List<Veiculo>();
+
+            veiculos.Add(veiculo);
+
+
+            _veiculoRepository.Setup(x => x.GetAll()).Throws(new Exception());
+
+            var veiculo1 = _veiculoService.BuscarVeiculo("TTTTT");
+
+            Assert.AreEqual(0, veiculo1.Id);
+
 
         }
 
 
 
 
+
         [TestMethod]
-        public void BuscarVeiculoQueExiste()
+        public void BuscarVeiculoSucesso()
+        {
+          
+
+            var veiculo = new Veiculo()
+            {  
+                Id = 1,
+                Chassi = "TTTTT",
+                Cor = "Bordo",
+                NroPassageiros = 2,
+                Tipo = 1
+            };
+
+
+            _veiculoRepository.Setup(x => x.GetById(It.IsAny<int>())).Returns(veiculo);
+
+            var veiculo1 = _veiculoService.BuscarVeiculo(1);
+
+            Assert.IsNotNull(veiculo1);
+
+
+        }
+
+
+        [TestMethod]
+        public void BuscarVeiculoFalha()
         {
 
-            var veiculo = new VeiculoService().BuscarVeiculo("AQWE567");
 
-            Assert.AreNotEqual(null, veiculo);
+            var veiculo = new Veiculo()
+            {
+                Id = 1,
+                Chassi = "TTTTT",
+                Cor = "Bordo",
+                NroPassageiros = 2,
+                Tipo = 1
+            };
+
+
+            _veiculoRepository.Setup(x => x.GetById(It.IsAny<int>())).Throws(new Exception());
+
+            var veiculo1 = _veiculoService.BuscarVeiculo(1);
+
+            Assert.IsNull(veiculo1);
 
 
         }
@@ -173,17 +252,6 @@ namespace Inlog.Frota.Test
         }
 
 
-        [TestMethod]
-        public void BuscarVeiculoQueNaoExiste()
-        {
-
-            var veiculo = new VeiculoService().BuscarVeiculo("xxxxx");
-
-            Assert.AreEqual(0, veiculo.Id);
-
-
-        }
-
 
         [TestMethod]
         public void ExcluirSucessoVeiculo()
@@ -205,16 +273,6 @@ namespace Inlog.Frota.Test
 
 
             Assert.IsTrue(ret);
-
-
-            //var veiculo = new VeiculoService().BuscarVeiculo("AQWE567");
-
-            //bool ret = false;
-            //new VeiculoService().ExcluirVeiculo(veiculo.Id);
-
-            //ret = true;
-
-            //Assert.AreEqual(true, ret);
 
         }
 
@@ -239,16 +297,6 @@ namespace Inlog.Frota.Test
 
 
             Assert.IsFalse(ret);
-
-
-            //var veiculo = new VeiculoService().BuscarVeiculo("AQWE567");
-
-            //bool ret = false;
-            //new VeiculoService().ExcluirVeiculo(veiculo.Id);
-
-            //ret = true;
-
-            //Assert.AreEqual(true, ret);
 
         }
 

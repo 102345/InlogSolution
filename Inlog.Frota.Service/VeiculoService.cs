@@ -43,16 +43,36 @@ namespace Inlog.Frota.Service
         {
             var veiculo = new Veiculo();
 
-            var veiculos = _veiculoRepository.GetAll().Where(x => x.Chassi == chassi);
+            try
+            {
+                veiculo = _veiculoRepository.GetAll().Where(x => x.Chassi == chassi).SingleOrDefault();
 
-            if (veiculos.Count() > 0) veiculo = veiculos.Single();
+
+            }
+            catch (System.Exception ex)
+            {
+                string msg = ex.Message;
+              
+            }
 
             return veiculo;
         }
 
         public Veiculo BuscarVeiculo(int id)
         {
-            return _veiculoRepository.GetById(id);
+            try
+            {
+                return _veiculoRepository.GetById(id);
+            }
+            catch (System.Exception ex)
+            {
+                string msg = ex.Message;
+
+                return null;
+            }
+
+
+            
         }
 
         public bool ExcluirVeiculo(int id)
