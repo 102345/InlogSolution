@@ -126,8 +126,18 @@ namespace Inlog.Frota.Service
 
         public List<Veiculo> PesquisarVeiculos(string filtroChassi)
         {
-            return _veiculoRepository.GetAll().Where(p => p.Chassi.Contains(filtroChassi))
-                                        .OrderBy(x => x.Chassi).ToList();
+            try
+            {
+                return _veiculoRepository.GetAll().Where(p => p.Chassi.Contains(filtroChassi))
+                                      .OrderBy(x => x.Chassi).ToList();
+            }
+            catch (System.Exception ex)
+            {
+                string msg = ex.Message;
+                return null;
+            }
+
+          
         }
     }
 }

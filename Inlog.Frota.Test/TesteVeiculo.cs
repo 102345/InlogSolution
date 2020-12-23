@@ -230,25 +230,79 @@ namespace Inlog.Frota.Test
         }
 
         [TestMethod]
-        public void PesquisarVeiculoExistente()
+        public void PesquisarVeiculoExisteSucesso()
         {
-            bool ret = false;
 
-            var veiculos = new VeiculoService().PesquisarVeiculos("BC1");
+            var veiculo = new Veiculo()
+            {
+                Id = 1,
+                Chassi = "TTTTT",
+                Cor = "Bordo",
+                NroPassageiros = 2,
+                Tipo = 1
+            };
 
-            if (veiculos.Count > 0) ret = true;
+            List<Veiculo> veiculos = new List<Veiculo>();
 
-            Assert.AreEqual(true, ret);
+            veiculos.Add(veiculo);
+
+
+            _veiculoRepository.Setup(x => x.GetAll()).Returns(veiculos);
+
+            var veiculosRet = _veiculoService.PesquisarVeiculos(veiculo.Chassi);
+
+            Assert.AreEqual(1,veiculosRet.Count);
+        }
+
+
+
+        [TestMethod]
+        public void PesquisarVeiculoNaoExisteSucesso()
+        {
+
+            var veiculo = new Veiculo()
+            {
+                Id = 1,
+                Chassi = "TTTTT",
+                Cor = "Bordo",
+                NroPassageiros = 2,
+                Tipo = 1
+            };
+
+            List<Veiculo> veiculos = new List<Veiculo>();
+
+            veiculos.Add(veiculo);
+
+
+            _veiculoRepository.Setup(x => x.GetAll()).Returns(veiculos);
+
+            var veiculosRet = _veiculoService.PesquisarVeiculos("AAAA");
+
+            Assert.AreEqual(0, veiculosRet.Count);
         }
 
         [TestMethod]
-        public void PesquisarVeiculoNãoExistente()
+        public void PesquisarVeiculoFalha()
         {
-            var veiculos = new VeiculoService().PesquisarVeiculos("aaa");
+            var veiculo = new Veiculo()
+            {
+                Id = 1,
+                Chassi = "TTTTT",
+                Cor = "Bordo",
+                NroPassageiros = 2,
+                Tipo = 1
+            };
 
-            int conta = veiculos.Count;
+            List<Veiculo> veiculos = new List<Veiculo>();
 
-            Assert.AreEqual(0, conta);
+            veiculos.Add(veiculo);
+
+
+            _veiculoRepository.Setup(x => x.GetAll()).Throws(new Exception());
+
+            var veiculosRet = _veiculoService.PesquisarVeiculos(veiculo.Chassi);
+
+            Assert.IsNull(veiculosRet);
         }
 
 
