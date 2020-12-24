@@ -61,7 +61,7 @@ namespace Inlog.Frota.Test
 
 
         [TestMethod]
-        public void ListarVeiculosNapExistemSucesso()
+        public void ListarVeiculosNaoExistemSucesso()
         {
           
 
