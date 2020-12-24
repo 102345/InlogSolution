@@ -60,6 +60,24 @@ namespace Inlog.Frota.Test
         }
 
 
+        [TestMethod]
+        public void ListarVeiculosNapExistemSucesso()
+        {
+          
+
+            List<Veiculo> veiculos = new List<Veiculo>();
+
+
+
+            _veiculoRepository.Setup(x => x.GetAll()).Returns(veiculos);
+
+            var veiculos1 = _veiculoService.ListarVeiculos();
+
+            Assert.AreEqual(0, veiculos1.Count);
+
+        }
+
+
 
         [TestMethod]
         public void ListarVeiculosFalha()
