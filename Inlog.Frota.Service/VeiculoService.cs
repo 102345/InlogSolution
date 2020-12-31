@@ -4,6 +4,7 @@ using Inlog.Frota.Model;
 using Inlog.Frota.Service.Interface;
 using System.Linq;
 using Inlog.Frota.DAL.Interface.Repositories;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Inlog.Frota.Service
 {
@@ -13,6 +14,7 @@ namespace Inlog.Frota.Service
 
         private readonly IVeiculoRepository _veiculoRepository;
 
+        [ExcludeFromCodeCoverage]
         public VeiculoService()
         {
             _veiculoRepository = new VeiculoRepository();
