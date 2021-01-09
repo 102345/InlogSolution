@@ -4,7 +4,11 @@ using System.Collections.Generic;
 namespace Inlog.Frota.Service.Interface
 {
     public interface IVeiculoService
-    {
+    {    
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         List<Veiculo> ListarVeiculos();
         List<Veiculo> PesquisarVeiculos(string filtroChassi);
         Veiculo BuscarVeiculo(string chassi);
