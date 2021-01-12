@@ -14,12 +14,13 @@ namespace Inlog.Frota.Service
 
         private readonly IVeiculoRepository _veiculoRepository;
 
-        [ExcludeFromCodeCoverage]
-        public VeiculoService()
-        {
-            _veiculoRepository = new VeiculoRepository();
-        }
+        //[ExcludeFromCodeCoverage]
+        //public VeiculoService()
+        //{
+        //    _veiculoRepository = new VeiculoRepository();
+        //}
 
+        [ExcludeFromCodeCoverage]
         public VeiculoService(IVeiculoRepository veiculoRepository)
         {
             _veiculoRepository = veiculoRepository;
