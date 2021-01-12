@@ -254,10 +254,10 @@ namespace Inlog.Frota.Api.Controllers
         {
             try
             {
-
+               
                 var veiculoRet = _veiculoService.BuscarVeiculo(veiculo.Chassi);
 
-                if (!string.IsNullOrEmpty(veiculoRet.Chassi))
+                if (veiculoRet != null)
                 {
 
                     JsonResult.Status = false;
